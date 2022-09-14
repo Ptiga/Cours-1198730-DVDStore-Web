@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des factures</title>
+</head>
+<body>
+    <form th:action="@{/movie}" method="post" th:object="${movie}">
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title"></input>
+        <label for="genre">Genre : </label>
+        <input type="text" id="genre" name="genre"></input>
+        <label for="description">Description :</label>
+        <input type="text" id="description" name="description"></input>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
