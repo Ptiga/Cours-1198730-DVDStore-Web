@@ -11,8 +11,10 @@
     </h2>
     <table border="1">
         <tr th:each="movie: ${movies}">
-            <td th:text="${movie.title}"></td>
-            <td th:text="${movie.genre}"></td>
+            <td>
+                <a th:href="@{/movie/{id}(id=${movie.id})}" th:text="${movie.title}"></a>
+                <!--<a th:href="${movie.id}" th:text="${movie.id}"></a>-->
+            </td>
         </tr>
     </table>
 </body>
