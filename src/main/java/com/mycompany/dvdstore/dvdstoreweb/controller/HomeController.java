@@ -16,12 +16,14 @@ public class HomeController {
     @Autowired
     private MovieServiceInterface movieService;
 
+    /*
     @GetMapping("/dvdstore-home")
     public @ModelAttribute("movies") List<Movie> displayHome(){
         System.out.println("Requête DVD-home");
         List<Movie>movies= movieService.getMovieList();
         return movies;
     }
+    */
 
     @GetMapping("/add-movie-form")
     //public String displayMovieForm(@ModelAttribute Movie movie){

@@ -1,6 +1,5 @@
-package com.mycompany.dvdstore.dvdstoreweb.controller;
+package com.mycompany.dvdstore.dvdstoreweb.api;
 
-import com.mycompany.dvdstore.controller.MovieControllerInterface;
 import com.mycompany.dvdstore.dvdstoreweb.form.MovieForm;
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
@@ -11,15 +10,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Scanner;
+import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/movie")
-public class MovieController{ //implements MovieControllerInterface {
+public class MovieResource { //implements MovieControllerInterface {
+
+
 
     @Autowired
     private MovieServiceInterface movieService;
-
 
     public MovieServiceInterface getMovieService() {
         return movieService;
@@ -28,27 +28,27 @@ public class MovieController{ //implements MovieControllerInterface {
     public void setMovieService(MovieServiceInterface movieService) {
         this.movieService = movieService;
     }
-/*
+
+
+    @GetMapping("")
+    List<Movie> list(){
+        System.out.println("Requête DVD-home");
+        return movieService.getMovieList();
+    }
+
+
     @GetMapping("/{id}")
-    public String displayMovieCard(@PathVariable("id") long id, Model model){
+    public Movie get(long id){ //A voir si besoin de passer un string à convertir en Long dans la méthode
         System.out.println("Requête détail film avec l'ID n°"+id);
-        model.addAttribute("movie", movieService.getMovieById(id));
-        return "movie-details";
+        return movieService.getMovieById(id);
     }
-*/
-/*
+
+
     @PostMapping("")
-    public String addMovie(@Valid @ModelAttribute MovieForm movieForm, BindingResult results){
-
-        if (results.hasErrors()){
-            System.out.println("Not added to file");
-            return "add-movie-form";
-        }
-
-        movieService.registerMovie(new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre(), movieForm.getDescription()));
-        return "movie-added";
+    public Movie add(@RequestBody Movie movie){
+        return movieService.registerMovie(movie);
     }
-*/
+
 
 /*
     public void addUsingConsole(){
