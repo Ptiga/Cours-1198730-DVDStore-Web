@@ -1,19 +1,17 @@
 package com.mycompany.dvdstore.dvdstoreweb.form;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class MovieForm {
 
     private long id;
-    @Size(max=20)
-    @NotBlank(message = "Veuillez entrer un titre")
+    @Size(min=1,max=20)
+    @NotBlank//(message = "Veuillez entrer un titre")
     private String title;
     @NotBlank
     private String genre;
-    @Size(max=250)
+    @Size(min=20,max=250)
     private String description;
 
 
