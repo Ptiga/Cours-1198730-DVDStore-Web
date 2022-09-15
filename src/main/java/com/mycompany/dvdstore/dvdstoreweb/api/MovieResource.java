@@ -38,7 +38,7 @@ public class MovieResource { //implements MovieControllerInterface {
 
 
     @GetMapping("/{id}")
-    public Movie get(long id){ //A voir si besoin de passer un string à convertir en Long dans la méthode
+    public Movie get(@PathVariable("id") long id){ //A voir si besoin de passer un string à convertir en Long dans la méthode
         System.out.println("Requête détail film avec l'ID n°"+id);
         return movieService.getMovieById(id);
     }

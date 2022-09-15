@@ -36,8 +36,8 @@ public class MovieController{ //implements MovieControllerInterface {
         return "movie-details";
     }
 */
-/*
-    @PostMapping("")
+
+    @PostMapping("/add")
     public String addMovie(@Valid @ModelAttribute MovieForm movieForm, BindingResult results){
 
         if (results.hasErrors()){
@@ -48,7 +48,7 @@ public class MovieController{ //implements MovieControllerInterface {
         movieService.registerMovie(new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre(), movieForm.getDescription()));
         return "movie-added";
     }
-*/
+
 
 /*
     public void addUsingConsole(){
