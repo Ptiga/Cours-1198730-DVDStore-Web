@@ -5,13 +5,22 @@
     <title>Gestion des factures</title>
 </head>
 <body>
-    <form th:action="@{/movie}" method="post" th:object="${movie}">
+    <form th:action="@{/movie}" method="post" th:object="${movieForm}">
         <label for="title">Titre :</label>
         <input type="text" id="title" name="title"></input>
-        <label for="genre">Genre : </label>
-        <input type="text" id="genre" name="genre"></input>
+        <label>Genre : </label>
+        <!--<input type="text" id="genre" name="genre"></input>-->
+        <select th:field="*{genre}">
+            <option th:value="COMEDIE" th:text="Comédie"></option>
+            <option th:value="HORREUR" th:text="Horreur"></option>
+            <option th:value="THRILLER" th:text="Thriller"></option>
+            <option th:value="ACTION" th:text="Action"></option>
+            <option th:value="ROMANTIQUE" th:text="Romantique"></option>
+            <option th:value="DRAME" th:text="Drame"></option>
+            <option th:value="ANIMATION" th:text="Animation"></option>
+        </select>
         <label for="description">Description :</label>
-        <input type="text" id="description" name="description"></input>
+        <input type="textarea" id="description" name="description"></input>
         <input type="submit"/>
     </form>
 </body>

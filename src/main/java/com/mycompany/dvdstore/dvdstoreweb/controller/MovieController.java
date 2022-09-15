@@ -1,13 +1,16 @@
 package com.mycompany.dvdstore.dvdstoreweb.controller;
 
 import com.mycompany.dvdstore.controller.MovieControllerInterface;
+import com.mycompany.dvdstore.dvdstoreweb.form.MovieForm;
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Scanner;
 
 @Controller
@@ -35,8 +38,14 @@ public class MovieController{ //implements MovieControllerInterface {
 
 
     @PostMapping("")
-    public String addMovie(@ModelAttribute Movie movie){
-        movieService.registerMovie(movie);
+    public String addMovie(@Valid @ModelAttribute MovieForm movieForm, BindingResult results){
+
+        if (results.hasErrors()){
+            System.out.println("Not added to file");
+            return "add-movie-form";
+        }
+
+        movieService.registerMovie(new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre(), movieForm.getDescription()));
         return "movie-added";
     }
 
