@@ -31,7 +31,7 @@ public class MovieResource { //implements MovieControllerInterface {
 
 
     @GetMapping("")
-    List<Movie> list(){
+    Iterable<Movie> list(){
         System.out.println("Requête DVD-home");
         return movieService.getMovieList();
     }

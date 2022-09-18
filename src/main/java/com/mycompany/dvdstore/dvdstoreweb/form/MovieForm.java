@@ -5,7 +5,7 @@ import javax.validation.constraints.Size;
 
 public class MovieForm {
 
-    private long id;
+    private Long id;
     @Size(min=1,max=20)
     @NotBlank//(message = "Veuillez entrer un titre")
     private String title;
@@ -19,7 +19,7 @@ public class MovieForm {
     }
 
 
-    public MovieForm(long id, String title, String genre, String description) {
+    public MovieForm(Long id, String title, String genre, String description) {
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -27,11 +27,11 @@ public class MovieForm {
     }
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
