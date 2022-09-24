@@ -45,7 +45,7 @@ public class MovieController{ //implements MovieControllerInterface {
             return "add-movie-form";
         }
 
-        movieService.registerMovie(new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre(), movieForm.getDescription()));
+        movieService.registerMovie(new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre()));
 
         return "movie-added";
     }
