@@ -33,7 +33,7 @@ fetch('movie')
             button.appendChild(text);
             td.appendChild(button);
             tr.appendChild(td);
-            
+
         });
 
     });
