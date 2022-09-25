@@ -2,6 +2,7 @@ package com.mycompany.dvdstore.dvdstoreweb.controller;
 
 import com.mycompany.dvdstore.controller.MovieControllerInterface;
 import com.mycompany.dvdstore.dvdstoreweb.form.MovieForm;
+import com.mycompany.dvdstore.entity.Actor;
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,10 @@ public class MovieController{ //implements MovieControllerInterface {
             System.out.println("Not added to file");
             return "add-movie-form";
         }
-
-        movieService.registerMovie(new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre()));
+        Movie movie = new Movie(movieForm.getId(), movieForm.getTitle(), movieForm.getGenre());
+        Actor actor = new Actor(movieForm.getFirstName(), movieForm.getLastName());
+        movie.setMainActor(actor);
+        movieService.registerMovie(movie);
 
         return "movie-added";
     }

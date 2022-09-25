@@ -24,6 +24,12 @@
         <label for="description">Description :</label>
         <input type="textarea" id="description" name="description"  th:field="*{description}"></input>
         <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        <label for="prenomActeur">Prénom :</label>
+        <input type="text" id="prenomActeur" name="firstName"  th:field="*{firstName}"></input>
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+        <label for="nomActeur">Nom :</label>
+        <input type="text" id="nomActeur" name="lastName"  th:field="*{lastName}"></input>
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
         <input type="submit"/>
     </form>
 </body>
